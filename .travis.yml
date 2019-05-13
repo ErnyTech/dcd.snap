@@ -1,0 +1,25 @@
+dist: xenial
+language: shell
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB
+  keep-history: false
+  local-dir: out
+  repo: ErnyTech/dcd.snap
+  on:
+    branch: master
+
+addons:
+  snaps:
+  - name: snapcraft
+    classic: true
+    
+script:
+  - while sleep 5m; do echo "=====[ $SECONDS seconds, buildroot still building... ]====="; done &
+  - sudo apt update
+  - /snap/bin/snapcraft clean
+  - /snap/bin/snapcraft --target-arch amd64
+  - mkdir /home/travis/build/ErnyTech/dcd.snap/out
+- cp *.snap /home/travis/build/ErnyTech/dcd.snap/out/
