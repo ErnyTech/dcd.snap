@@ -22,4 +22,4 @@ script:
   - /snap/bin/snapcraft clean
   - /snap/bin/snapcraft --target-arch amd64
   - mkdir /home/travis/build/ErnyTech/dcd.snap/out
-- cp *.snap /home/travis/build/ErnyTech/dcd.snap/out/
+  - cp *.snap /home/travis/build/ErnyTech/dcd.snap/out/
